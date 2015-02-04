@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import base64
 import sys
@@ -29,7 +30,7 @@ class GitImporter(object):
     def find_module(self,fullname,path=None):
         
         if configured:
-            print "[*] Attempting to retrieve %s" % fullname
+            print "[*] tentative de recup  %s" % fullname
             new_library = get_file_contents("modules/%s" % fullname)
             
             if new_library is not None:
@@ -67,7 +68,7 @@ def get_file_contents(filepath):
     for filename in tree.tree:
         
         if filepath in filename.path:
-            print "[*] Found file %s" % filepath
+            print "[*] fichier trouvé %s" % filepath
             
             blob = repo.blob(filename._json_data['sha'])
             
